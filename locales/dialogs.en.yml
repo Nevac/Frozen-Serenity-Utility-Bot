@@ -1,0 +1,9 @@
+en:
+  warning:
+    give: Oof, that are {0} warnings already, oopsie daisy!
+    give_bot: Is this a joke? Are you a joke? I think you are. To prove how insignificant you are, I will
+      just warn you instead. Better watch out now, you have {0} warnings, you human of little impact.
+    give_self: I always thought that you were bad at self reflection, but it seems that you might have still some
+      sense in that werd brain of yours. You now have {0} warnings.
+    check: Oh snap, you've got {0} warnings in total! Soon I will visit this free MS Excel course that my friend Raj
+      from India told me about. I might be able to create a cool table with the top most warning holders!

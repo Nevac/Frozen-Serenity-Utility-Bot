@@ -1,2 +1,4 @@
 ch:
-  warning: verwarnig
+  warning:
+    warning: verwarnig
+    warnings: verwarnige

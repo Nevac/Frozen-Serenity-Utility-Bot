@@ -1,2 +1,4 @@
 en:
-  warning: warning
+  warning:
+    warning: warning
+    warnings: warnings
