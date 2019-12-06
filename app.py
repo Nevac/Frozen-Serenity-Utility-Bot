@@ -1,13 +1,15 @@
 import discord
 import configparser
 from mongoengine import *
+
+from exceptions.commandNotFound import CommandNotFound
 from services.commandResolver import resolve_command
 
 client = discord.Client()
 config = configparser.ConfigParser()
 config.read('app.config')
 
-PREFIX = config['Discord']['CommandPrefix'] + ' '
+PREFIX = config['Discord']['CommandPrefix']
 TOKEN = config['Discord']['Token']
 
 connect(config['Discord']['DbConnectionHost'],
@@ -25,8 +27,10 @@ async def on_message(message):
         return
 
     if message.content.startswith(PREFIX):
-        command = message.content.split(' ', 2)[1]
-        await resolve_command(command)(message, client)
+        try:
+            await resolve_command(message.content)(message, client)
+        except CommandNotFound as e:
+            await message.channel.send(e.message)
 
 
 client.run(TOKEN)

@@ -1,4 +1,6 @@
 ch:
+  help: Du muesch denk no sege was du wotsch du Habach. I Zuekunft segi der viellecht no welli Befehl dass es git.
+    Aber nur wenn Gipfeli am Morge bringsch.
   warning:
     give: Uiuiui, das macht de scho {0} Verwarnige du.
     give_bot: HIMMELARSCH UND ZWIRN! Das isch jetzt aber scho uhuere frech! De kriegsch grad selber eini du
@@ -7,3 +9,9 @@ ch:
       chli e spezielli Person bisch. Das wäre de scho {0} Verwarnige, mol!
     check: Ja du, ganzi {0} verwarnige hesch! Gli chani de endlech au mal mit Excel schaffe, mache e Kurs zäme mit de
       Brigitte, momou! De chani mau e Tabelle mache und luege welle Dubbel die meiste Verwarnige het oder.
+  error:
+    command_not_found: Du sorry aber das hani jetzt nid verstande, nenei. Du, denksch mal drüber nach was genau hesch
+      welle und ich mach mir i de Zwscihezit es Kaffi oder.
+    command_incomplete: Uiiii, da fehlt öppis. I has für dich schön fett markiert, viellecht raffsch es ja!
+    user_not_found: Leck Bobi, i ha gsuecht und gsuecht aber niemerts gfunde wo so heisst. Wundert mi nid, mit diner
+      Art und Wiis lauft dir sicher öppe die mal e Kolleg furt.

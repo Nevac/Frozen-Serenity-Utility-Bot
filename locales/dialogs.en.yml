@@ -1,4 +1,6 @@
 en:
+  help: You can't just yell at me and except that I know what to do. Soon I might tell you all commands, but I am not in
+    the mood right now.
   warning:
     give: Oof, that are {0} warnings already, oopsie daisy!
     give_bot: Is this a joke? Are you a joke? I think you are. To prove how insignificant you are, I will
@@ -7,3 +9,10 @@ en:
       sense in that werd brain of yours. You now have {0} warnings.
     check: Oh snap, you've got {0} warnings in total! Soon I will visit this free MS Excel course that my friend Raj
       from India told me about. I might be able to create a cool table with the top most warning holders!
+  error:
+    command_not_found: Hold on, I did not get that. Why don't you take out that tasteless gum in your mouth that is
+    supposed  to be your tongue and try that again.
+    command_incomplete: Dundundun, you missed there something, bud! Thankfully I have made the missing part bold so
+      that even your mental capacity can handle it!
+    user_not_found: I searched and searched but found no one who is called like that. Are you sure that this isn't
+      your imaginery wet-dreams friend you told me about in secrecy?
