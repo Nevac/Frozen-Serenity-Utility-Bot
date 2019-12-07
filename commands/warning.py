@@ -16,10 +16,6 @@ async def warning(message, client):
         id_string = command[2]
         _id = extract_user_id(id_string)
 
-        user = check_if_user_exists(_id, client, message)
-        user.warnings += 1
-        user.save()
-
         if _id == client.user.id:
             _id = message.author.id
             dialog = i18n.t('dialogs.warning.give_bot')
@@ -27,6 +23,10 @@ async def warning(message, client):
             dialog = i18n.t('dialogs.warning.give_self')
         else:
             dialog = i18n.t('dialogs.warning.give')
+
+        user = check_if_user_exists(_id, client, message)
+        user.warnings += 1
+        user.save()
 
         await message.channel.send(dialog.format(user.warnings))
     except UserNotFound as e:
