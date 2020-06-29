@@ -3,6 +3,7 @@ from services.localizationService import i18n
 
 from commands.unknown import unknown
 from commands.help import _help
+from commands.hello import hello
 from commands.warning import warning, warnings
 
 
@@ -16,6 +17,7 @@ commands.update({
     i18n.t('commands.warning.warning'): warning,
     i18n.t('commands.warning.warnings'): warnings
 })
+commands.update({cmd.strip(): hello for cmd in i18n.t('commands.hello').split(',')})
 
 
 def resolve_command(input_command):
