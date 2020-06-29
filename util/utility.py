@@ -3,7 +3,7 @@ from datetime import datetime
 from discord import Client
 from mongoengine import DoesNotExist
 
-from documents.reason import Reason
+from documents.warnig import Warnig
 from documents.user import User
 from exceptions.userNotFound import UserNotFound
 from validators.validateUserId import validate_user_id
@@ -32,14 +32,14 @@ def is_user(client: Client, key: str) -> User or None:
 
 
 def add_warning(owner: User, target: User, reason: str) -> None:
-    reason = Reason(date=datetime.now, owner=owner, target=target, reason=reason)
+    reason = Warnig(date=datetime.now, owner=owner, target=target, reason=reason)
     reason.save()
 
 
 def get_warnings(user: User) -> int:
     # TODO Backwards compatibility, should old warnings still be counted?
-    return Reason.objects.filter(target=user).count() + user.warnings
+    return Warnig.objects.filter(target=user).count() + user.warnings
 
 
 def get_warnings_top(user: User, top: int = 5):
-    return Reason.objects.filter(target=user).order_by('-date')[:top]
+    return Warnig.objects.filter(target=user).order_by('-date')[:top]
