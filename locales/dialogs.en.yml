@@ -7,8 +7,10 @@ en:
       just warn you instead. Better watch out now, you have {0} warnings, you human of little impact.
     give_self: I always thought that you were bad at self reflection, but it seems that you might have still some
       sense in that werd brain of yours. You now have {0} warnings.
-    check: Oh snap, you've got {0} warnings in total! Soon I will visit this free MS Excel course that my friend Raj
-      from India told me about. I might be able to create a cool table with the top most warning holders!
+    check: Oh snap, you've got {0} warnings in total! I finally did the course with Raj, you should have seen how confused he was!
+    check_invalid: Oh snap, you've got {0} warnings in total! Earned if you ask me, you failed to type a number because "{1}" isn't one.
+    missing_reason: reason
+    missing_user: user
   error:
     command_not_found: Hold on, I did not get that. Why don't you take out that tasteless gum in your mouth that is
     supposed  to be your tongue and try that again.

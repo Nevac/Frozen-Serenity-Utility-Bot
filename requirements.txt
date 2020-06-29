@@ -6,11 +6,12 @@ certifi==2019.11.28
 chardet==3.0.4
 configparser==4.0.2
 discord.py==1.2.5
+discord==1.0.1
 idna==2.8
-mongoengine==0.8.8
+mongoengine==0.20.0
 multidict==4.6.1
 py==1.8.0
-pymongo==2.7
+pymongo==3.10.1
 python-i18n==0.3.7
 pytz==2019.3
 PyYAML==5.1.2

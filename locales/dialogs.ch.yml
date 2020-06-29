@@ -7,11 +7,13 @@ ch:
       Halbschueh. Übrigens, das wäre de scho {0} Verwarnige du gigu.
     give_self: Echli Selbstreflektion duet immer guet he? Gibs zue, mir hend doch all scho immer gwüsst dass
       chli e spezielli Person bisch. Das wäre de scho {0} Verwarnige, mol!
-    check: Ja du, ganzi {0} verwarnige hesch! Gli chani de endlech au mal mit Excel schaffe, mache e Kurs zäme mit de
-      Brigitte, momou! De chani mau e Tabelle mache und luege welle Dubbel die meiste Verwarnige het oder.
+    check: Ja du, ganzi {0} verwarnige hesch! Ha jetzt endlech de Kurs mit de Brigitte gmacht, hetsch sölle gseh wie überforderet sie gsi isch!
+    check_invalid: Ja du, ganzi {0} verwarnige hesch! Isch au verdient wemer z blöd isch en zahl z tippe, "{1}" isch nämlich keini.
+    missing_reason: Grund
+    missing_user: Globi
   error:
     command_not_found: Du sorry aber das hani jetzt nid verstande, nenei. Du, denksch mal drüber nach was genau hesch
-      welle und ich mach mir i de Zwscihezit es Kaffi oder.
+      welle und ich mach mir i de Zwüschezit es Kaffi oder.
     command_incomplete: Uiiii, da fehlt öppis. I has für dich schön fett markiert, viellecht raffsch es ja!
     user_not_found: Leck Bobi, i ha gsuecht und gsuecht aber niemerts gfunde wo so heisst. Wundert mi nid, mit diner
       Art und Wiis lauft dir sicher öppe die mal e Kolleg furt.
