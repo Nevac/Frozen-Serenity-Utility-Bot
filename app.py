@@ -1,5 +1,6 @@
 import discord
 import configparser
+import i18n
 from mongoengine import connect
 
 from services.commandResolver import resolve_command
@@ -23,6 +24,8 @@ async def on_message(message):
         return
     if message.content.startswith(PREFIX):
         await resolve_command(message.content)(message, client)
+    elif message.content.find(str(client.user.id)):
+        await message.channel.send(i18n.t('dialogs.tagged'))
 
 
 if len(TOKEN) == 0:
