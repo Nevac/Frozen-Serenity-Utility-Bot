@@ -37,7 +37,8 @@ def add_warning(owner: User, target: User, reason: str):
 
 
 def get_warnings(user: User):
-    return Reason.objects.filter(target=user).count()
+    # TODO Backwards compatibility, should old warnings still be counted?
+    return Reason.objects.filter(target=user).count() + user.warnings
 
 
 def get_warnings_top(user: User, top: int = 5):
