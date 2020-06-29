@@ -47,6 +47,7 @@ async def warnings(message, client):
         dialog += '```' + '\n'.join([
             w.date.strftime("%d.%m.%Y %H:%M:%S") + ' \t'
             + w.owner.name + ' \t'
+            # TODO Resolve user IDs in reason
             + w.reason
             for w in top_warnings]) + '```'
 
