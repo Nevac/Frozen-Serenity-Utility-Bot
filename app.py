@@ -11,8 +11,6 @@ config.read('app.config')
 PREFIX = config['Discord']['CommandPrefix']
 TOKEN = config['Discord']['Token']
 
-connect(config['Discord']['DbConnectionHost'], host=config['Discord']['DbConnectionHost'], port=int(config['Discord']['DbConnectionPort']))
-
 
 @client.event
 async def on_ready():
@@ -27,7 +25,9 @@ async def on_message(message):
         await resolve_command(message.content)(message, client)
 
 
-try:
-    client.run(TOKEN)
-except discord.HTTPException as e:
-    print('Could not connect to Discord:', e)
+if len(TOKEN) == 0:
+    print('Token not provided')
+    exit()
+
+connect(config['Discord']['DbConnectionHost'], host=config['Discord']['DbConnectionHost'], port=int(config['Discord']['DbConnectionPort']))
+client.run(TOKEN)
