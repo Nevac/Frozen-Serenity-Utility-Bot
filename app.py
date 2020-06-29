@@ -24,7 +24,7 @@ async def on_message(message):
         return
     if message.content.startswith(PREFIX):
         await resolve_command(message.content)(message, client)
-    elif message.content.find(str(client.user.id)):
+    elif message.content.find(str(client.user.id)) >= 0:
         await message.channel.send(i18n.t('dialogs.tagged'))
 
 
