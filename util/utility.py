@@ -46,14 +46,14 @@ def get_warnings(user: User) -> int:
 
 
 def get_warnings_top(user: User, top: int = 5):
-    return Warnig.objects.filter(taker=user).order_by('-date')[:top]
+    return list(Warnig.objects.filter(taker=user).order_by('-date')[:top])
 
 
 def get_warnings_giver(top: int = 5):
     warnings_giver = Warnig.objects.aggregate([{'$group': {'_id': '$giver', 'warnings': {'$sum': 1}}}, {'$sort': {'warnings': -1}}])
-    return list(warnings_giver)[:top]
+    return list(warnings_giver[:top])
 
 
 def get_warnings_taker(top: int = 5):
     warnings_taker = Warnig.objects.aggregate([{'$group': {'_id': '$taker', 'warnings': {'$sum': 1}}}, {'$sort': {'warnings': -1}}])
-    return list(warnings_taker)[:top]
+    return list(warnings_taker[:top])
