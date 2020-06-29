@@ -39,18 +39,19 @@ async def warnings(message, client):
 
     try:
         user = get_user(client, message.author.id)
-        top = int(command[2]) if len(command) == 3 and command[2].isnumeric() else 5
-        if len(command) == 3 and not command[2].isnumeric():
-            dialog = i18n.t('dialogs.warning.check_invalid').format(get_warnings(user), command[2])
-        else:
-            dialog = i18n.t('dialogs.warning.check').format(get_warnings(user))
 
-        top_warnings = get_warnings_top(user, top)
-        dialog += '```' + '\n'.join([
-            w.date.strftime("%d.%m.%Y %H:%M:%S") + ' '
-            + w.owner.name.ljust(25) + ' '
-            + __resolve_users(client, w.reason)
-            for w in top_warnings]) + '```'
+        dialog = i18n.t('dialogs.warning.check').format(get_warnings(user))
+        if len(command) == 3:
+            if not command[2].isnumeric():
+                dialog = i18n.t('dialogs.warning.check_invalid').format(get_warnings(user), command[2])
+            else:
+                top = int(command[2])
+                top_warnings = get_warnings_top(user, top)
+                dialog += '```' + '\n'.join([
+                    w.date.strftime("%d.%m.%Y %H:%M:%S") + ' '
+                    + w.owner.name.ljust(25) + ' '
+                    + __resolve_users(client, w.reason)
+                    for w in top_warnings]) + '```'
 
         await message.channel.send(dialog)
     except UserNotFound as e:
