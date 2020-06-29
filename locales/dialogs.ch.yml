@@ -17,6 +17,10 @@ ch:
     command_incomplete: Uiiii, da fehlt öppis. I has für dich schön fett markiert, viellecht raffsch es ja!
     user_not_found: Leck Bobi, i ha gsuecht und gsuecht aber niemerts gfunde wo so heisst. Wundert mi nid, mit diner
       Art und Wiis lauft dir sicher öppe die mal e Kolleg furt.
+  statistic:
+    giver: Ich ha Microsoft Excel 2007 lo knattere, benutzer_mit_de_meischte_verwarnige_usteilt.xls isch im Ahang.
+    taker: Ich ha Microsoft Excel 2007 lo knattere, benutzer_mit_de_meischte_verwarnige_igsteckt.xls isch im Ahang.
+    invalid: Das hie "{0}" isch kei Zahl, das söttsch du wüsse. dumme_siech.xls isch im Ahang.
   greeting:
     Ja hoi du, wie gahts?
   tagged:

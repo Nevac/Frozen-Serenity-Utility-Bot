@@ -8,7 +8,6 @@ def validate_user_id(key: str) -> int:
         return int(key)
     try:
         validate_text(key)
-
         if key.startswith('<@!') and key.endswith('>'):
             key = key[3:-1]
         elif key.startswith('<@') and key.endswith('>'):
