@@ -24,15 +24,15 @@ def get_user(client: Client, _id: str) -> User:
     return user
 
 
-def __is_user(client: Client, key: str) -> User or None:
+def __get_username(client: Client, key: str) -> User or str:
     try:
-        return get_user(client, key)
+        return get_user(client, key).name
     except UserNotFound as e:
-        return None
+        return key
 
 
 def resolve_users(client, words: str):
-    return ' '.join(['@' + user.name if (user := __is_user(client, w)) is not None else w for w in words.split(' ')])
+    return ' '.join(['@' + __get_username(client, w) for w in words.split(' ')])
 
 
 def add_warning(giver: User, taker: User, reason: str) -> None:
