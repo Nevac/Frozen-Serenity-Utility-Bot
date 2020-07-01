@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from discord import Client
 from mongoengine import DoesNotExist
 
@@ -26,13 +25,13 @@ def get_user(client: Client, _id: str) -> User:
 
 def __get_username(client: Client, key: str) -> User or str:
     try:
-        return get_user(client, key).name
+        return '@' + get_user(client, key).name
     except UserNotFound as e:
         return key
 
 
 def resolve_users(client, words: str):
-    return ' '.join(['@' + __get_username(client, w) for w in words.split(' ')])
+    return ' '.join([__get_username(client, w) for w in words.split(' ')])
 
 
 def add_warning(giver: User, taker: User, reason: str) -> None:
@@ -41,12 +40,19 @@ def add_warning(giver: User, taker: User, reason: str) -> None:
 
 
 def get_warnings(user: User) -> int:
-    # TODO Backwards compatibility, should old warnings still be counted?
     return Warnig.objects.filter(taker=user).count() + user.warnings
 
 
 def get_warnings_top(user: User, top: int = 5):
-    return list(Warnig.objects.filter(taker=user).order_by('-date')[:top])
+    # TODO Hack to get over exceptions thrown when using python 7.3+
+    result = list()
+    try:
+        for r in Warnig.objects.filter(taker=user).order_by('-date')[:top]:
+            result.append(r)
+    except Exception as e:
+        pass
+    return result
+    # return list(Warnig.objects.filter(taker=user).order_by('-date')[:top])
 
 
 def get_warnings_giver(top: int = 5):

@@ -15,6 +15,10 @@ async def __top_stats(message, client, function, dialog_id: str):
     if not message.author.guild_permissions.administrator:
         return
 
+    # TODO Cannot get it to work with mongoengine==0.8.8
+    await message.channel.send('Ich bechume das mit excel nonid ane, google meint sum() aber mis excel verstaht keis englisch...')
+    return
+
     command = message.content.split(' ')
     dialog = i18n.t(dialog_id)
 

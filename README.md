@@ -14,7 +14,9 @@ sudo systemctl start mongodb
 ### Setup project
 ```
 python3 -m venv venv
-python3 -m pip install -r requirements.txt
+source venv/bin/activate
+pip install -r requirements.txt
+pip freeze
 ```
 
 ### pip wrong version
