@@ -2,7 +2,7 @@ from collections import defaultdict
 
 from services.localizationService import i18n
 
-from commands.unknown import unknown
+from commands.unknown import unknown, none
 from commands.help import help
 from commands.hello import hello
 from commands.warning import warning, warnings
@@ -28,7 +28,7 @@ def resolve_command(input_command):
     command_fragments = input_command.split(' ')
 
     if len(command_fragments) <= 1:
-        return commands[i18n.t('commands.help')]
+        return none
 
     command = command_fragments[1]
     return commands[command]

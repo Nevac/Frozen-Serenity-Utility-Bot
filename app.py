@@ -1,12 +1,12 @@
-import discord
-import configparser
-import i18n
+from configparser import ConfigParser
 from mongoengine import connect
+import discord
+import i18n
 
 from services.commandResolver import resolve_command
 
 client = discord.Client()
-config = configparser.ConfigParser()
+config = ConfigParser()
 config.read('app.config')
 
 PREFIX = config['Discord']['CommandPrefix']
