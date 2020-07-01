@@ -31,5 +31,6 @@ sudo python3 -m pip install -U $(python3 -m pip freeze | cut -d '=' -f 1)
 
 ## Run bot
 ```
+source venv/bin/activate
 python3 app.py
 ```
