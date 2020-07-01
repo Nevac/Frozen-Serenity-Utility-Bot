@@ -1,6 +1,12 @@
 ch:
-  help: Du muesch denk no sege was du wotsch du Habach. I Zuekunft segi der viellecht no welli Befehl dass es git.
-    Aber nur wenn Gipfeli am Morge bringsch.
+  none: Du, denksch mal drüber nach was du genau wettsch säge und ich mach mir i de Zwüschezit es Kaffi oder.
+  help:
+    general: 'Bringsch morn Morge Gipfeli mit, gäll? Hie sind scho mal d Befehl:'
+    warning.warning: '@[Globi] [Grund] -> Verwarnt die genannti Person miteme gegäbene Grund'
+    warning.warnings: '-> Zeigt d Azahl Verwarnige wo du hesch,[n] -> Zeigt dini letschte [n] Verwarnige'
+    statistic.giver: '[n] -> Zeigt die beschte [n] Usteiler'
+    statistic.taker: '[n] -> Zeigt die beschte [n] Istecker'
+  unknown: Du muesch denk no sege was du wotsch du Habach. Wennd Gipfeli am Morge bringsch und mer es Mail mit "{0}" machsch schicki der d Befehl als pdf.
   warning:
     give: Uiuiui, das macht de scho {0} Verwarnige du.
     give_bot: HIMMELARSCH UND ZWIRN! Das isch jetzt aber scho uhuere frech! De kriegsch grad selber eini du
@@ -12,11 +18,14 @@ ch:
     missing_reason: Grund
     missing_user: Globi
   error:
-    command_not_found: Du sorry aber das hani jetzt nid verstande, nenei. Du, denksch mal drüber nach was genau hesch
-      welle und ich mach mir i de Zwüschezit es Kaffi oder.
+    command_not_found: Du sorry aber das hani jetzt nid verstande, nenei. Schrib mer "{0}" und ich schick der d Lischte vo Befehl als pdf.
     command_incomplete: Uiiii, da fehlt öppis. I has für dich schön fett markiert, viellecht raffsch es ja!
     user_not_found: Leck Bobi, i ha gsuecht und gsuecht aber niemerts gfunde wo so heisst. Wundert mi nid, mit diner
       Art und Wiis lauft dir sicher öppe die mal e Kolleg furt.
+  statistic:
+    giver: Ich ha Microsoft Excel 2007 lo knattere, benutzer_mit_de_meischte_verwarnige_usteilt.xls isch im Ahang.
+    taker: Ich ha Microsoft Excel 2007 lo knattere, benutzer_mit_de_meischte_verwarnige_igsteckt.xls isch im Ahang.
+    invalid: '"{0}" isch kei Zahl, das söttsch du wüsse. dumme_siech.xls isch im Ahang.'
   greeting:
     Ja hoi du, wie gahts?
   tagged:

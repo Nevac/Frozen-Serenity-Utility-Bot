@@ -1,6 +1,11 @@
 en:
-  help: You can't just yell at me and except that I know what to do. Soon I might tell you all commands, but I am not in
-    the mood right now.
+  none: You think about what you want to say and I make some coffee in the meantime ok?
+  help:
+    general: "Here is the list with all the commands:"
+    warning.warning: '@[user] [reason] -> Warn the user with a given reason'
+    warning.warnings: '-> Show how many warnings you have,[n] -> Show your last [n] warnings'
+    statistic.giver: '[n] -> Show the best [n] givers'
+    statistic.taker: '[n] -> Show the best [n] takers'
   warning:
     give: Oof, that are {0} warnings already, oopsie daisy!
     give_bot: Is this a joke? Are you a joke? I think you are. To prove how insignificant you are, I will
@@ -12,12 +17,15 @@ en:
     missing_reason: reason
     missing_user: user
   error:
-    command_not_found: Hold on, I did not get that. Why don't you take out that tasteless gum in your mouth that is
-    supposed  to be your tongue and try that again.
+    command_not_found: You can't just yell at me and except that I know what to do. Tell me "{0}" and I will send you the pdf with all the commands.
     command_incomplete: Dundundun, you missed there something, bud! Thankfully I have made the missing part bold so
       that even your mental capacity can handle it!
     user_not_found: I searched and searched but found no one who is called like that. Are you sure that this isn't
       your imaginery wet-dreams friend you told me about in secrecy?
+  statistic:
+    giver: I let Microsoft Excel 2007 run, user_with_the_most_warnings_given.xls is attached below.
+    taker: I let Microsoft Excel 2007 run, user_with_the_most_warnings_taken.xls is attached below.
+    invalid: '"{0}" is not a number, you should know that. idiot_office_14.xls is attached below.'
   greeting:
     Hello there, how is it going?
   tagged:

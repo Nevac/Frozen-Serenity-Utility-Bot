@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from discord import Client
 from mongoengine import DoesNotExist
 
@@ -24,22 +23,43 @@ def get_user(client: Client, _id: str) -> User:
     return user
 
 
-def is_user(client: Client, key: str) -> User or None:
+def __get_username(client: Client, key: str) -> User or str:
     try:
-        return get_user(client, key)
+        return '@' + get_user(client, key).name
     except UserNotFound as e:
-        return None
+        return key
 
 
-def add_warning(owner: User, target: User, reason: str) -> None:
-    reason = Warnig(date=datetime.now, owner=owner, target=target, reason=reason)
+def resolve_users(client, words: str):
+    return ' '.join([__get_username(client, w) for w in words.split(' ')])
+
+
+def add_warning(giver: User, taker: User, reason: str) -> None:
+    reason = Warnig(date=datetime.now, giver=giver, taker=taker, reason=reason)
     reason.save()
 
 
 def get_warnings(user: User) -> int:
-    # TODO Backwards compatibility, should old warnings still be counted?
-    return Warnig.objects.filter(target=user).count() + user.warnings
+    return Warnig.objects.filter(taker=user).count() + user.warnings
 
 
 def get_warnings_top(user: User, top: int = 5):
-    return Warnig.objects.filter(target=user).order_by('-date')[:top]
+    # TODO Hack to get over exceptions thrown when using python 7.3+
+    result = list()
+    try:
+        for r in Warnig.objects.filter(taker=user).order_by('-date')[:top]:
+            result.append(r)
+    except Exception as e:
+        pass
+    return result
+    # return list(Warnig.objects.filter(taker=user).order_by('-date')[:top])
+
+
+def get_warnings_giver(top: int = 5):
+    warnings_giver = Warnig.objects.aggregate([{'$group': {'_id': '$giver', 'warnings': {'$sum': 1}}}, {'$sort': {'warnings': -1}}])
+    return list(warnings_giver[:top])
+
+
+def get_warnings_taker(top: int = 5):
+    warnings_taker = Warnig.objects.aggregate([{'$group': {'_id': '$taker', 'warnings': {'$sum': 1}}}, {'$sort': {'warnings': -1}}])
+    return list(warnings_taker[:top])
