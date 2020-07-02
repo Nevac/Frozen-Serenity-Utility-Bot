@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if already running
-dupe_script=$(ps -ef | grep "start_judith.sh" | grep -v grep | wc -l)
+dupe_script=$(ps -ef | grep -e "app.py" -e "start_judith.sh" | grep -v grep | wc -l)
 if [ "${dupe_script}" -gt 3 ]; then
   echo -e "Judith already running"
   exit 0
