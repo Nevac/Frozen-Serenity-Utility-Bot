@@ -14,7 +14,7 @@ function install_venv() {
   }
   dest=$1
   # Deactivate current venv
-  deactivate
+  deactivate 2>/dev/null
   # Create venv if not exist
   [[ -d "${dest}/venv" ]] && {
     # Source venv
