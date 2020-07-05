@@ -3,3 +3,7 @@ ch:
   warning:
     warning: verwarnig
     warnings: verwarnige
+  statistic:
+    giver: usteiler
+    taker: istecker
+  hello: hey, hello, hallo, hoi, sali, salü, aloha, grüezi, grüessech

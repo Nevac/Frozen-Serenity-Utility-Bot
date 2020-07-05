@@ -3,3 +3,7 @@ en:
   warning:
     warning: warning
     warnings: warnings
+  statistic:
+    giver: giver
+    taker: taker
+  hello: hey, hello

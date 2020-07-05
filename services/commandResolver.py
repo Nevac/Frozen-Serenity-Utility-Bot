@@ -1,24 +1,34 @@
-from commands.help import _help
-from exceptions.commandNotFound import CommandNotFound
-from services.localizationService import i18n
-from commands.warning import warning, warnings
+from collections import defaultdict
 
-commands = {
-    i18n.t('commands.help'): _help,
+from services.localizationService import i18n
+
+from commands.unknown import unknown, none
+from commands.help import help
+from commands.hello import hello
+from commands.warning import warning, warnings
+from commands.statistic import giver, taker
+
+
+def cmd_not_found():
+    return unknown
+
+
+commands = defaultdict(cmd_not_found)
+commands.update({
+    i18n.t('commands.help'): help,
     i18n.t('commands.warning.warning'): warning,
-    i18n.t('commands.warning.warnings'): warnings
-}
+    i18n.t('commands.warning.warnings'): warnings,
+    i18n.t('commands.statistic.giver'): giver,
+    i18n.t('commands.statistic.taker'): taker
+})
+commands.update({cmd.strip(): hello for cmd in i18n.t('commands.hello').split(',')})
 
 
 def resolve_command(input_command):
     command_fragments = input_command.split(' ')
 
     if len(command_fragments) <= 1:
-        return commands[i18n.t('commands.help')]
-    else:
-        command = command_fragments[1]
+        return none
 
-        if command in commands.keys():
-            return commands[command]
-        else:
-            raise CommandNotFound
+    command = command_fragments[1]
+    return commands[command]

@@ -1,10 +1,8 @@
 from exceptions.commandIncomplete import CommandIncomplete
 from exceptions.userNotFound import UserNotFound
 from services.localizationService import i18n
-from validation import validate_int
 
-from util.utility import extract_user_id, check_if_user_exists
-from documents.user import User, DoesNotExist
+from util.utility import get_user, resolve_users, add_warning, get_warnings, get_warnings_top
 from validators.validateUserId import validate_user_id
 
 
@@ -13,22 +11,23 @@ async def warning(message, client):
 
     try:
         validate_warning_user_argument(command)
-        id_string = command[2]
-        _id = extract_user_id(id_string)
+        taker_id = validate_user_id(command[2])
+        giver_id = message.author.id
 
-        if _id == client.user.id:
-            _id = message.author.id
+        if taker_id == client.user.id:
+            taker_id = message.author.id
+            giver_id = client.user.id
             dialog = i18n.t('dialogs.warning.give_bot')
-        elif _id == message.author.id:
+        elif taker_id == message.author.id:
             dialog = i18n.t('dialogs.warning.give_self')
         else:
             dialog = i18n.t('dialogs.warning.give')
 
-        user = check_if_user_exists(_id, client, message)
-        user.warnings += 1
-        user.save()
+        giver = get_user(client, giver_id)
+        taker = get_user(client, taker_id)
+        add_warning(giver, taker, ' '.join(command[3:]).strip())
 
-        await message.channel.send(dialog.format(user.warnings))
+        await message.channel.send(dialog.format(get_warnings(taker)))
     except UserNotFound as e:
         await message.channel.send(e.message)
     except CommandIncomplete as e:
@@ -36,13 +35,29 @@ async def warning(message, client):
 
 
 async def warnings(message, client):
+    command = message.content.split(' ')
+
     try:
-        user = check_if_user_exists(message.author.id, client, message)
-        await message.channel.send(i18n.t('dialogs.warning.check').format(user.warnings))
+        user = get_user(client, message.author.id)
+        dialog = i18n.t('dialogs.warning.check').format(get_warnings(user))
+        if len(command) == 3:
+            if not command[2].isnumeric():
+                dialog = i18n.t('dialogs.warning.check_invalid').format(get_warnings(user), command[2])
+            else:
+                top_warnings = get_warnings_top(user, int(command[2]))
+                dialog += '```' + '\n'.join([
+                    w.date.strftime("%d.%m.%Y %H:%M:%S") + ' '
+                    + w.giver.name.ljust(25) + ' '
+                    + resolve_users(client, w.reason)
+                    for w in top_warnings]) + '```'
+
+        await message.channel.send(dialog)
     except UserNotFound as e:
         await message.channel.send(e.message)
 
 
-def validate_warning_user_argument(command):
-    if len(command) < 3:
-        raise CommandIncomplete('{0} {1} **@UserX**'.format(command[0], command[1]))
+def validate_warning_user_argument(command: list):
+    if len(command) == 3:
+        raise CommandIncomplete('{0} {1} {2} **{3}**'.format(command[0], command[1], command[2], i18n.t('dialogs.warning.missing_reason')))
+    elif len(command) <= 2:
+        raise CommandIncomplete('{0} {1} **@{2} {3}**'.format(command[0], command[1], i18n.t('dialogs.warning.missing_user'), i18n.t('dialogs.warning.missing_reason')))
