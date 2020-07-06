@@ -4,6 +4,8 @@ en:
     general: "Here is the list with all the commands:"
     warning.warning: '@[user] [reason] -> Warn the user with a given reason'
     warning.warnings: '-> Show how many warnings you have,[n] -> Show your last [n] warnings'
+    quote.quote: '@[quotee] [quote] -> Register a new quote that the world needs to see'
+    quote.quotes: '-> Returns a random quote'
     statistic.giver: '[n] -> Show the best [n] givers'
     statistic.taker: '[n] -> Show the best [n] takers'
   warning:
@@ -16,6 +18,14 @@ en:
     check_invalid: Oh snap, you've got {0} warnings in total! Earned if you ask me, you failed to type a number because "{1}" isn't one.
     missing_reason: reason
     missing_user: user
+  quote:
+    quote: Man, such a stupid quote.
+    quote_bot: 'You dare to quote stuff I never said? Well how about I quote you this: "Ohno, I have {0} warnings!"'
+    quote_bot_warning: Quoted me for stuff I never said. What a twat.
+    quote_self: You seem to be in love with yourself, aren't you?
+    quote_empty: Well, I unfortunately dont know any quotes, but I am sure you will try to impress me hard with your intellect.
+    missing_quotee: Quoted Person
+    missing_quote: Quote
   error:
     command_not_found: You can't just yell at me and except that I know what to do. Tell me "{0}" and I will send you the pdf with all the commands.
     command_incomplete: Dundundun, you missed there something, bud! Thankfully I have made the missing part bold so

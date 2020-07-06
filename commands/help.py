@@ -5,6 +5,8 @@ import i18n
 commands = [
     'warning.warning',
     'warning.warnings',
+    'quote.quote',
+    'quote.quotes'
     # 'statistic.giver',
     # 'statistic.taker'
 ]
@@ -19,7 +21,7 @@ async def help(message, client):
     dialog += '```' + '\n'.join(
         '\n'.join([
             PREFIX + ' ' + i18n.t('commands.' + cmd).ljust(12) + ' '
-            + ' ->'.join(h.ljust(18) for h in help.split('->')) for help in i18n.t('dialogs.help.' + cmd).split(',')
+            + ' ->'.join(h.ljust(20) for h in help.split('->')) for help in i18n.t('dialogs.help.' + cmd).split(',')
         ])
         for cmd in commands
     ) + '```'

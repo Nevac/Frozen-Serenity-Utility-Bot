@@ -3,6 +3,9 @@ en:
   warning:
     warning: warning
     warnings: warnings
+  quote:
+    quote: quote
+    quotes: quotes
   statistic:
     giver: giver
     taker: taker

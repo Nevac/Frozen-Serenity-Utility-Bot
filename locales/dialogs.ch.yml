@@ -4,6 +4,8 @@ ch:
     general: 'Bringsch morn Morge Gipfeli mit, gäll? Hie sind scho mal d Befehl:'
     warning.warning: '@[Globi] [Grund] -> Verwarnt die genannti Person miteme gegäbene Grund'
     warning.warnings: '-> Zeigt d Azahl Verwarnige wo du hesch,[n] -> Zeigt dini letschte [n] Verwarnige'
+    quote.quote: '@[Zitierte] [Zitat] -> Erstellt e neue Zitat wo dWelt unbedingt bruucht'
+    quote.quotes: '-> Git e zuefällige und erlüüchtende Zitat her'
     statistic.giver: '[n] -> Zeigt die beschte [n] Usteiler'
     statistic.taker: '[n] -> Zeigt die beschte [n] Istecker'
   unknown: Du muesch denk no sege was du wotsch du Habach. Wennd Gipfeli am Morge bringsch und mer es Mail mit "{0}" machsch schicki der d Befehl als pdf.
@@ -17,6 +19,14 @@ ch:
     check_invalid: Ja du, ganzi {0} verwarnige hesch! Isch au verdient wemer z blöd isch en zahl z tippe, "{1}" isch nämlich keini.
     missing_reason: Grund
     missing_user: Globi
+  quote:
+    quote: Ha, sone blöde Spruch!
+    quote_bot: I würd nie sone Chäs sege du habach. Ich bestrafe Lügner, {0} verdienti Verwarnige hesch jetzt!
+    quote_bot_warning: Het dummi Zitat vo mir gmacht wo ned stimme, sone lustige Löli
+    quote_self: Scho echli selbstverliebt simmer oder?
+    quote_empty: Du, ich kenne no cheni Zitat, aber i weiss ned würkli ob das hie öbbis schlimms isch. Mach mich schlau.
+    missing_quotee: Zitierti Person
+    missing_quote: Zitat
   error:
     command_not_found: Du sorry aber das hani jetzt nid verstande, nenei. Schrib mer "{0}" und ich schick der d Lischte vo Befehl als pdf.
     command_incomplete: Uiiii, da fehlt öppis. I has für dich schön fett markiert, viellecht raffsch es ja!

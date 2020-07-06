@@ -3,6 +3,9 @@ ch:
   warning:
     warning: verwarnig
     warnings: verwarnige
+  quote:
+    quote: zitat
+    quotes: zitier
   statistic:
     giver: usteiler
     taker: istecker
