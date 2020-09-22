@@ -8,6 +8,7 @@ en:
     quote.quotes: '-> Returns a random quote'
     statistic.giver: '[n] -> Show the best [n] givers'
     statistic.taker: '[n] -> Show the best [n] takers'
+    minecraft.minecraft: '[start|status] -> Starts the server or checks its status'
   warning:
     give: Oof, that are {0} warnings already, oopsie daisy!
     give_bot: Is this a joke? Are you a joke? I think you are. To prove how insignificant you are, I will
@@ -40,3 +41,7 @@ en:
     Hello there, how is it going?
   tagged:
     You cannot talk about me behind my back!
+  minecraft:
+    start: The server is starting up now, go grab a coffee or something until it is up.
+    online: '**Online** - The server is running. Stupid Cube game.'
+    offline: '*Offline* - Ooooof, no server running, just like your relationships.'

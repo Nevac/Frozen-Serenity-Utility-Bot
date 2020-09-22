@@ -6,9 +6,10 @@ commands = [
     'warning.warning',
     'warning.warnings',
     'quote.quote',
-    'quote.quotes'
+    'quote.quotes',
     # 'statistic.giver',
-    # 'statistic.taker'
+    # 'statistic.taker',
+    'minecraft.minecraft'
 ]
 
 config = ConfigParser()

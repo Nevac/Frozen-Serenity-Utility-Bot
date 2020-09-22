@@ -8,6 +8,7 @@ ch:
     quote.quotes: '-> Git e zuefällige und erlüüchtende Zitat her'
     statistic.giver: '[n] -> Zeigt die beschte [n] Usteiler'
     statistic.taker: '[n] -> Zeigt die beschte [n] Istecker'
+    minecraft.minecraft: '[start|status] -> Started de Server oder fragt de status ab'
   unknown: Du muesch denk no sege was du wotsch du Habach. Wennd Gipfeli am Morge bringsch und mer es Mail mit "{0}" machsch schicki der d Befehl als pdf.
   warning:
     give: Uiuiui, das macht de scho {0} Verwarnige du.
@@ -40,3 +41,7 @@ ch:
     Ja hoi du, wie gahts?
   tagged:
     Es wird sicher nid hinder mim rügge über mich gredt, nenei!
+  minecraft:
+    start: Der wird jetzt gstartet, cha es paar minütli gah. Mach der doch es Kaffi!
+    online: '**Online** - De Server isch am laufe! Huere Quadratgame.'
+    offline: '*Offline* - Aiaiaiai schint wohl ned zlaufe, wie dis Liebeslebe.'

@@ -4,3 +4,4 @@ python-i18n==0.3.7
 pymongo==2.7
 validation==0.5.0
 PyYAML==5.3.1
+boto3==1.15.2

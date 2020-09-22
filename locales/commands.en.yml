@@ -10,3 +10,7 @@ en:
     giver: giver
     taker: taker
   hello: hey, hello
+  minecraft:
+    minecraft: mc
+    start: start
+    status: status
